@@ -13,6 +13,8 @@
 		36649A5725622EFF00BAC9AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36649A5525622EFF00BAC9AB /* Main.storyboard */; };
 		36649A5925622F8D00BAC9AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36649A5825622F8D00BAC9AB /* Assets.xcassets */; };
 		36649A5C25622F8E00BAC9AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36649A5A25622F8E00BAC9AB /* LaunchScreen.storyboard */; };
+		36649A6925623C4300BAC9AB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36649A6825623C4300BAC9AB /* DetailsViewController.swift */; };
+		36649A6C25623CF400BAC9AB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36649A6B25623CF400BAC9AB /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		36649A5825622F8D00BAC9AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36649A5B25622F8E00BAC9AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36649A5D25622F8E00BAC9AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36649A6825623C4300BAC9AB /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		36649A6B25623CF400BAC9AB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				36649A5325622EFF00BAC9AB /* ViewController.swift */,
+				36649A6825623C4300BAC9AB /* DetailsViewController.swift */,
+				36649A6B25623CF400BAC9AB /* WebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -164,6 +170,8 @@
 				36649A5425622EFF00BAC9AB /* ViewController.swift in Sources */,
 				36649A5025622EFF00BAC9AB /* AppDelegate.swift in Sources */,
 				36649A5225622EFF00BAC9AB /* SceneDelegate.swift in Sources */,
+				36649A6C25623CF400BAC9AB /* WebViewController.swift in Sources */,
+				36649A6925623C4300BAC9AB /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
