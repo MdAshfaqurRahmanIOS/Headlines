@@ -15,33 +15,47 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        searchTextField.delegate = self
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
+        view.addGestureRecognizer(tap)
+        newsTableView.addGestureRecognizer(tap)
+    }
+    
+    @objc func DismissKeyboard(){
+        //Causes the view to resign from the status of first responder.
+        view.endEditing(true)
     }
 
 
     @IBAction func searchButton(_ sender: UIButton) {
-        
+        searchTextField.endEditing(true)
     }
 }
 
 extension ViewController: UITextFieldDelegate {
-//    Learn this methood tomorrow
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        <#code#>
-//    }
-//    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-//        <#code#>
-//    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("Click me 1")
+        searchTextField.borderStyle = .bezel
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        print("Click me 2")
+        searchTextField.endEditing(true)
+        return true
+    }
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        print("Click me 3")
+        if searchTextField.text != "" {
+            searchTextField.placeholder = ""
+            return true
+        } else {
+            searchTextField.placeholder = "Type Country Short Name"
+            return true
+        }
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        print("Click me 4")
+        searchTextField.text = ""
+        searchTextField.borderStyle = .roundedRect
+    }
 }
-
-//extension ViewController: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 174
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        <#code#>
-//    }
-    
-    
-//}
