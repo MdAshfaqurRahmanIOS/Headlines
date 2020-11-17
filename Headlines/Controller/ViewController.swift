@@ -13,10 +13,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var newsTableView: UITableView!
     
+    var jsonManager = JSONManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTextField.delegate = self
-        
+        jsonManager.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
         view.addGestureRecognizer(tap)
         newsTableView.addGestureRecognizer(tap)
@@ -41,6 +43,8 @@ extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("Click me 2")
         searchTextField.endEditing(true)
+        jsonManager.watherFunc(city: searchTextField.text!)
+        
         return true
     }
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -55,7 +59,15 @@ extension ViewController: UITextFieldDelegate {
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         print("Click me 4")
-        searchTextField.text = ""
         searchTextField.borderStyle = .roundedRect
+    }
+}
+extension ViewController: WeatherProtocol {
+    func showCuntryName(temp: JSONModel) {
+        DispatchQueue.main.async {
+//            self.countryName.text = String(temp.tempShow)
+//            self.descriptionLabel.text = temp.fulldescription
+            print("chekc data\(temp.name)")
+        }
     }
 }
