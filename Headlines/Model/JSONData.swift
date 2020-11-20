@@ -8,12 +8,12 @@
 import Foundation
 struct JSONData: Codable {
     let status: String?
+    let totalResults: Int?
     let articles: [Articles]
-//    let name: String?
 }
 
 struct Articles: Codable {
-//    let source: Source
+    let source: Source
     let author: String?
     let title: String?
     let description: String?
@@ -22,7 +22,7 @@ struct Articles: Codable {
     let publishedAt: String?
     let content: String?
 }
-//struct Source: Codable {
-//    let id: String
-//    let name: String
-//}
+struct Source: Codable {
+    let id: String?
+    let name: String?
+}

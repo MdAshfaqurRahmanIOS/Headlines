@@ -69,16 +69,21 @@ struct JSONManager {
             
             let storeDecoder = try jsonDecoder.decode(JSONData.self, from: decoding)
             
-            
-            let name = storeDecoder.articles[0].author
-            print(name ?? "")
+//            let articles = storeDecoder.articles
+//            let authorName = storeDecoder.articles[0].author ?? ""
+            let titleHeadline = storeDecoder.articles[0].title ?? ""
+//            let url = storeDecoder.articles[0].url ?? ""
+//            let urlToImage = storeDecoder.articles[0].urlToImage ?? ""
+//            let publishedAt = storeDecoder.articles[0].publishedAt ?? ""
+//            let content = storeDecoder.articles[0].content ?? ""
+//            let sourceName = storeDecoder.articles[0].source.name ?? ""
             
 //            let temp = storeDecoder.main.temp
 //            let desc = storeDecoder.weather[0].description
 //            let id = storeDecoder.weather[0].id
             
             
-            let jsonModel = JSONModel(name: name ?? "")
+            let jsonModel = JSONModel(title: titleHeadline)
             
             return jsonModel
             

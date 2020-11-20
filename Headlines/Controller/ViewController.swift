@@ -43,7 +43,7 @@ extension ViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print("Click me 2")
         searchTextField.endEditing(true)
-        jsonManager.watherFunc(city: searchTextField.text!)
+        
         
         return true
     }
@@ -51,6 +51,7 @@ extension ViewController: UITextFieldDelegate {
         print("Click me 3")
         if searchTextField.text != "" {
             searchTextField.placeholder = ""
+            jsonManager.watherFunc(city: searchTextField.text!)
             return true
         } else {
             searchTextField.placeholder = "Type Country Short Name"
@@ -59,6 +60,7 @@ extension ViewController: UITextFieldDelegate {
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         print("Click me 4")
+        textField.text = ""
         searchTextField.borderStyle = .roundedRect
     }
 }
@@ -67,7 +69,8 @@ extension ViewController: WeatherProtocol {
         DispatchQueue.main.async {
 //            self.countryName.text = String(temp.tempShow)
 //            self.descriptionLabel.text = temp.fulldescription
-            print("chekc data\(temp.name)")
+//            print("chekc data\(temp.articles[0].title ?? "")")
+            print(temp.title)
         }
     }
 }
