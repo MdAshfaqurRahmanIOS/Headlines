@@ -13,12 +13,23 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var detailsHeadLineLabel: UILabel!
     @IBOutlet weak var detailsAuthorNameLabel: UILabel!
     @IBOutlet weak var detailsDateLabel: UILabel!
-    @IBOutlet weak var DetailsNewsBodyLabel: UITextView!
+    @IBOutlet weak var detailsNewsBodyLabel: UITextView!
+    
+    var detailsImageCont = UIImage()
+    var detailsHeadLineCont = ""
+    var detailsAuthorNameCont = ""
+    var detailsDateCont = ""
+    var detailsNewsBodyCotn = ""
+    
+    var detailsWeburlCont = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        detailsImageView.image = detailsImageCont
+        detailsHeadLineLabel.text = detailsHeadLineCont
+        detailsAuthorNameLabel.text = detailsAuthorNameCont
+        detailsDateLabel.text = detailsDateCont
+        detailsNewsBodyLabel.text = detailsNewsBodyCotn
     }
     
     @IBAction func detailsShowMoreButton(_ sender: UIButton) {

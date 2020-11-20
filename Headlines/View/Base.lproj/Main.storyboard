@@ -128,6 +128,12 @@
                                                         <constraint firstItem="7Fa-Ph-9E4" firstAttribute="height" secondItem="aFw-zo-F4q" secondAttribute="height" multiplier="0.3" id="ygk-UJ-Rgu"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="celNewsProviderNameLabel" destination="TjQ-s9-UQM" id="OSd-eS-hJu"/>
+                                                    <outlet property="cellAuthorLabel" destination="akp-pd-5lf" id="7ET-Ll-2iu"/>
+                                                    <outlet property="cellHeadlineLabel" destination="prD-x3-oaz" id="sza-ji-XGn"/>
+                                                    <outlet property="cellImageView" destination="bUB-z8-ld0" id="XJR-c1-fNA"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
@@ -156,7 +162,6 @@
                     <navigationItem key="navigationItem" id="UyA-98-3Mk"/>
                     <connections>
                         <outlet property="newsTableView" destination="Wxh-Qo-gtG" id="OgR-OF-LMc"/>
-                        <outlet property="searchButton" destination="X1k-tk-aXa" id="whF-oY-H5J"/>
                         <outlet property="searchTextField" destination="XIH-qe-ZdX" id="B32-tk-O3D"/>
                     </connections>
                 </viewController>
@@ -250,11 +255,11 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="DetailsNewsBodyLabel" destination="JCL-Cb-UYf" id="ffk-xD-YEg"/>
                         <outlet property="detailsAuthorNameLabel" destination="A8u-Mv-YBq" id="cv9-WS-Jtc"/>
                         <outlet property="detailsDateLabel" destination="o3P-H6-Vvq" id="g4q-rK-qHx"/>
                         <outlet property="detailsHeadLineLabel" destination="epG-dl-PZi" id="ln8-2j-4ZG"/>
                         <outlet property="detailsImageView" destination="WD1-iB-XBu" id="Noh-ZC-Qn4"/>
+                        <outlet property="detailsNewsBodyLabel" destination="JCL-Cb-UYf" id="ffk-xD-YEg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KqZ-jv-eud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

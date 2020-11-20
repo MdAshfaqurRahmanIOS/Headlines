@@ -8,6 +8,6 @@
 import Foundation
 
 struct JSONModel {
-//    let articles: [Articles]
-    let title: String
+    let articles: [Articles]
+//    let title: String
 }
