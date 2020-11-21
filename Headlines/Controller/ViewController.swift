@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var newsTableView: UITableView!
     
     var jsonManager = JSONManager()
-    var articles = [Articles]()
+    var articlesArray = [Articles]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,10 +78,9 @@ extension ViewController: WeatherProtocol {
 //            self.countryName.text = String(temp.tempShow)
 //            self.descriptionLabel.text = temp.fulldescription
 //            print("chekc data\(temp.articles[0].title ?? "")")
-            self.articles = jsonModel.articles
+            self.articlesArray = jsonModel.articles
             self.newsTableView.reloadData()
 
-            print(jsonModel.articles[0].title ?? "")
         }
     }
 }
@@ -92,17 +91,18 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
+        return articlesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! CustomTableViewCell
         
-        cell.cellHeadlineLabel.text = articles[indexPath.row].title
-        cell.cellAuthorLabel.text = articles[indexPath.row].author
-        cell.celNewsProviderNameLabel.text = articles[indexPath.row].source.name
-        if articles[indexPath.row].urlToImage != nil{
-            if let imageURL = URL(string: articles[indexPath.row].urlToImage!){
+        cell.cellHeadlineLabel.text = articlesArray[indexPath.row].title
+        cell.cellAuthorLabel.text = articlesArray[indexPath.row].author
+        cell.celNewsProviderNameLabel.text = articlesArray[indexPath.row].source.name
+        
+        if articlesArray[indexPath.row].urlToImage != nil {
+            if let imageURL = URL(string: articlesArray[indexPath.row].urlToImage!) {
                 DispatchQueue.global().async {
                     let data = try? Data(contentsOf: imageURL)
                     if let data = data {
@@ -113,20 +113,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                     }
                 }
             }
-            
-        } else{
-            print("Doesn't contain a imageURL!")
         }
+        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         let detailsVC = storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
-        print("click on row")
-        detailsVC.detailsHeadLineCont = articles[indexPath.row].title ?? ""
-        detailsVC.detailsAuthorNameCont = articles[indexPath.row].author ?? ""
-        detailsVC.detailsDateCont = articles[indexPath.row].publishedAt ?? ""
-        detailsVC.detailsNewsBodyCotn = articles[indexPath.row].content ?? ""
-        detailsVC.detailsWeburlCont = articles[indexPath.row].url ?? ""
+        
+        detailsVC.detailsHeadLineCont = articlesArray[indexPath.row].title ?? ""
+        detailsVC.detailsAuthorNameCont = articlesArray[indexPath.row].author ?? ""
+        detailsVC.detailsDateCont = articlesArray[indexPath.row].publishedAt ?? ""
+        detailsVC.detailsNewsBodyCotn = articlesArray[indexPath.row].content ?? ""
+        detailsVC.detailsWeburlCont = articlesArray[indexPath.row].url ?? ""
         
         navigationController?.pushViewController(detailsVC, animated: true)
         

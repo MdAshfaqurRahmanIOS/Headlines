@@ -20,7 +20,6 @@ class DetailsViewController: UIViewController {
     var detailsAuthorNameCont = ""
     var detailsDateCont = ""
     var detailsNewsBodyCotn = ""
-    
     var detailsWeburlCont = ""
     
     override func viewDidLoad() {
