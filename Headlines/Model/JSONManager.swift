@@ -5,7 +5,7 @@
 //  Created by Md Ashfaqur Rahman on 17/11/20.
 //
 
-import Foundation
+import UIKit
 
 protocol WeatherProtocol {
     func showCuntryName(jsonModel: JSONModel)
@@ -65,18 +65,28 @@ struct JSONManager {
             
             let storeDecoder = try jsonDecoder.decode(JSONData.self, from: decoding)
             let articles = storeDecoder.articles
-            //            let authorName = storeDecoder.articles[0].author ?? ""
-            //            let titleHeadline = storeDecoder.articles[0].title ?? ""
-            //            let url = storeDecoder.articles[0].url ?? ""
-            //            let urlToImage = storeDecoder.articles[0].urlToImage ?? ""
-            //            let publishedAt = storeDecoder.articles[0].publishedAt ?? ""
-            //            let content = storeDecoder.articles[0].content ?? ""
-            //            let sourceName = storeDecoder.articles[0].source.name ?? ""
+            var array = [UIImage]()
+            for articles in articles {
+                
+                if let imageUrlString = articles.urlToImage {
+                    
+                    if let imageURL = URL(string: imageUrlString) {
+                        DispatchQueue.global().async {
+                            let data = try? Data(contentsOf: imageURL)
+                            if let data = data {
+                                let image = UIImage(data: data)
+                                DispatchQueue.main.async {
+                                    array.append(image!)
+                                }
+                            }
+                        }
+                    }
+                }
+                print(articles.urlToImage ?? "")
+            }
             
-            //            let temp = storeDecoder.main.temp
-            //            let desc = storeDecoder.weather[0].description
-            //            let id = storeDecoder.weather[0].id
-            let jsonModel = JSONModel(articles: articles)
+            
+            let jsonModel = JSONModel(articles: articles, image: array)
             return jsonModel
             
         } catch {

@@ -15,7 +15,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var detailsDateLabel: UILabel!
     @IBOutlet weak var detailsNewsBodyLabel: UITextView!
     
-    var detailsImageCont = UIImage()
+    var detailsImageCont = ""
     var detailsHeadLineCont = ""
     var detailsAuthorNameCont = ""
     var detailsDateCont = ""
@@ -24,7 +24,21 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailsImageView.image = detailsImageCont
+        
+        if detailsImageCont != "" {
+            if let imageURL = URL(string: detailsImageCont) {
+                DispatchQueue.global().async {
+                    let data = try? Data(contentsOf: imageURL)
+                    if let data = data {
+                        let image = UIImage(data: data)
+                        DispatchQueue.main.async {
+                            self.detailsImageView.image = image
+                        }
+                    }
+                }
+            }
+        }
+        
         detailsHeadLineLabel.text = detailsHeadLineCont
         detailsAuthorNameLabel.text = detailsAuthorNameCont
         detailsDateLabel.text = detailsDateCont
@@ -32,6 +46,10 @@ class DetailsViewController: UIViewController {
     }
     
     @IBAction func detailsShowMoreButton(_ sender: UIButton) {
+        let webVC = storyboard?.instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+        webVC.weburl = detailsWeburlCont
+        
+        navigationController?.pushViewController(webVC, animated: true)
         
     }
     

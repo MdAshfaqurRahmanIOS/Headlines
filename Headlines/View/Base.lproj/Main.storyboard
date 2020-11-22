@@ -267,6 +267,21 @@
             </objects>
             <point key="canvasLocation" x="1465" y="56"/>
         </scene>
+        <!--Web View Controller-->
+        <scene sceneID="X3t-D6-dma">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="YfE-TX-MX5" customClass="WebViewController" customModule="Headlines" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZSn-mc-Xe0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="lCU-cy-usb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bMz-tN-2Ub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2215" y="57"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="2VH-wX-kej">
             <objects>

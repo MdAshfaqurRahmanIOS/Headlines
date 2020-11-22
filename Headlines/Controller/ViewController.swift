@@ -121,11 +121,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         let detailsVC = storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
         
+        detailsVC.detailsImageCont = articlesArray[indexPath.row].urlToImage ?? ""
         detailsVC.detailsHeadLineCont = articlesArray[indexPath.row].title ?? ""
         detailsVC.detailsAuthorNameCont = articlesArray[indexPath.row].author ?? ""
         detailsVC.detailsDateCont = articlesArray[indexPath.row].publishedAt ?? ""
         detailsVC.detailsNewsBodyCotn = articlesArray[indexPath.row].content ?? ""
         detailsVC.detailsWeburlCont = articlesArray[indexPath.row].url ?? ""
+        
+        
         
         navigationController?.pushViewController(detailsVC, animated: true)
         

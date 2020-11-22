@@ -9,6 +9,8 @@ import UIKit
 import WebKit
 
 class WebViewController: UIViewController, WKUIDelegate {
+    
+    var weburl = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
