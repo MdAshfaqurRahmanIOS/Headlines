@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     var jsonManager = JSONManager()
     var articlesArray = [Articles]()
+    var topView: UIView?
+    var transationMenuView = TransitaionAnimationNsObject()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,23 +25,78 @@ class ViewController: UIViewController {
         newsTableView.delegate = self
         newsTableView.dataSource = self
         
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
-//        view.addGestureRecognizer(tap)
-//        newsTableView.addGestureRecognizer(tap)
+        //        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
+        //        view.addGestureRecognizer(tap)
+        //        newsTableView.addGestureRecognizer(tap)
         
         jsonManager.watherFunc(city: "us")
     }
     
-//    @objc func DismissKeyboard(){
-//        //Causes the view to resign from the status of first responder.
-//        view.endEditing(true)
-//    }
-
-
+    //    @objc func DismissKeyboard(){
+    //        //Causes the view to resign from the status of first responder.
+    //        view.endEditing(true)
+    //    }
+    
+    
     @IBAction func searchButton(_ sender: UIButton) {
         searchTextField.endEditing(true)
     }
+    
+    
+    
+    @IBAction func menuBarController(_ sender: UIButton) {
+        let menuTableViewController = storyboard?.instantiateViewController(withIdentifier: "MenuTableViewController") as! MenuTableViewController
+        
+        menuTableViewController.didTapCountryType = { countruyType in
+            self.transitionToNewCounrty(countruyType)
+            
+            
+        }
+        menuTableViewController.modalPresentationStyle = .overCurrentContext
+        menuTableViewController.transitioningDelegate = self
+        present(menuTableViewController, animated: true)
+        
+        
+        
+    }
+    
+    func transitionToNewCounrty(_ countruyType: CountruyType) {
+        topView?.removeFromSuperview()
+        switch countruyType {
+        case .ar:
+            jsonManager.watherFunc(city: "ar")
+            break
+        case .au:
+            jsonManager.watherFunc(city: "au")
+        case .at:
+            jsonManager.watherFunc(city: "at")
+            break
+        case .be:
+            jsonManager.watherFunc(city: "be")
+            break
+            
+            
+        }
+    }
 }
+
+extension ViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transationMenuView.isPresenting = true
+        return transationMenuView
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transationMenuView.isPresenting = false
+        return transationMenuView
+    }
+}
+
+
+
+
+
+
 
 extension ViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -75,12 +132,12 @@ extension ViewController: UITextFieldDelegate {
 extension ViewController: WeatherProtocol {
     func showCuntryName(jsonModel: JSONModel) {
         DispatchQueue.main.async {
-//            self.countryName.text = String(temp.tempShow)
-//            self.descriptionLabel.text = temp.fulldescription
-//            print("chekc data\(temp.articles[0].title ?? "")")
+            //            self.countryName.text = String(temp.tempShow)
+            //            self.descriptionLabel.text = temp.fulldescription
+            //            print("chekc data\(temp.articles[0].title ?? "")")
             self.articlesArray = jsonModel.articles
             self.newsTableView.reloadData()
-
+            
         }
     }
 }
@@ -136,3 +193,4 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+

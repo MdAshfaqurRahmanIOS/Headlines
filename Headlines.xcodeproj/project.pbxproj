@@ -19,6 +19,8 @@
 		36649A6925623C4300BAC9AB /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36649A6825623C4300BAC9AB /* DetailsViewController.swift */; };
 		36649A6C25623CF400BAC9AB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36649A6B25623CF400BAC9AB /* WebViewController.swift */; };
 		36649A6F25625B3A00BAC9AB /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36649A6E25625B3A00BAC9AB /* CustomTableViewCell.swift */; };
+		8A28EFF0256B856300568B84 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A28EFEF256B856300568B84 /* MenuTableViewController.swift */; };
+		8A28EFF3256B93A900568B84 /* TransitaionAnimationNsObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A28EFF2256B93A900568B84 /* TransitaionAnimationNsObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		36649A6825623C4300BAC9AB /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		36649A6B25623CF400BAC9AB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		36649A6E25625B3A00BAC9AB /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		8A28EFEF256B856300568B84 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		8A28EFF2256B93A900568B84 /* TransitaionAnimationNsObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitaionAnimationNsObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				36649A6825623C4300BAC9AB /* DetailsViewController.swift */,
 				36649A6B25623CF400BAC9AB /* WebViewController.swift */,
 				36649A6E25625B3A00BAC9AB /* CustomTableViewCell.swift */,
+				8A28EFEF256B856300568B84 /* MenuTableViewController.swift */,
+				8A28EFF2256B93A900568B84 /* TransitaionAnimationNsObject.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,10 +187,12 @@
 			files = (
 				36649A6F25625B3A00BAC9AB /* CustomTableViewCell.swift in Sources */,
 				363FC7A525640C2500CB918E /* JSONManager.swift in Sources */,
+				8A28EFF0256B856300568B84 /* MenuTableViewController.swift in Sources */,
 				36649A5425622EFF00BAC9AB /* ViewController.swift in Sources */,
 				36649A5025622EFF00BAC9AB /* AppDelegate.swift in Sources */,
 				36649A5225622EFF00BAC9AB /* SceneDelegate.swift in Sources */,
 				363FC7A825640C4000CB918E /* JSONModel.swift in Sources */,
+				8A28EFF3256B93A900568B84 /* TransitaionAnimationNsObject.swift in Sources */,
 				36649A6C25623CF400BAC9AB /* WebViewController.swift in Sources */,
 				36649A6925623C4300BAC9AB /* DetailsViewController.swift in Sources */,
 				363FC7AB25640C5200CB918E /* JSONData.swift in Sources */,

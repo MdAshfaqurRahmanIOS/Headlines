@@ -18,16 +18,10 @@ struct JSONManager {
     
     func watherFunc (city: String){
         let addcityConcat = "\(appConnect)&country=\(city)"
-        print(addcityConcat)
+       // print(addcityConcat)
         receiveDataFormApi(data1: addcityConcat)
     }
-    
-    
-    
-    
-    
-    
-    
+ 
     
     func receiveDataFormApi (data1: String) {
         
@@ -43,8 +37,8 @@ struct JSONManager {
                     // print(convertdata!)
                     if let finalData = self.reciveDecodinigData(decoding: collectData) {
                         
-//                        let  viewController = ViewController()
-//                        viewController.showCuntryName(temp: finalData)
+                        //                        let  viewController = ViewController()
+                        //                        viewController.showCuntryName(temp: finalData)
                         delegate?.showCuntryName(jsonModel: finalData)
                     }
                 }
